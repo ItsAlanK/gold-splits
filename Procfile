@@ -1,1 +1,1 @@
-web: gunicorn goldsplits.wsgi
+web: gunicorn gold-splits.wsgi
