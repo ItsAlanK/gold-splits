@@ -124,6 +124,14 @@ Wireframes have been made for desktop, tablet and mobile versions of each page o
 
 ### Colors & Fonts ###
 
+The Colors were chosen to give a cool tone with some matching lighter colors for accent pieces and to draw the attention.
+
+The dark tone was chosen to keep the screen dark and easily readable in low light with room for contrast when needed.
+
+Blue was chosen as the primary base tone to separate design from that of other popular game/speedrun related sites such as [**Twitch.tv**](https://twitch.tv) which uses purple and [**Speedrun.com**](https://speedrun.com) which is green.
+
+![Coolors Color Palette](docs/color-palette.png)
+
 <a name="features"></a>
 
 ## Features ##
