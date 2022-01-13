@@ -56,6 +56,44 @@ This project will use the Django framework for a MVC based application using Pos
 
 ### Structure ###
 
+Below you will find the structure and models that are used in the database for this project. Diagram was created using [**DrawSQL**](https://drawsql.app/)
+
+![Structure of Database showing models](docs/db_diagram.png)
+
+|   | Posts Model  |   |
+|---|---|---|
+| id  | IntegerField  |   |
+| title  | CharField  |   |
+| author | ForeignKey profile  |   |
+| date  | DateField  |   |
+| timestamp  | TimeField  |   |
+| content  | TextField  |   |
+| likes  | IntegerField  |   |
+| hero image  | URLField  |   |
+| category  | ForgeignKey category  |   |
+| slug  | SlugField  |   |
+
+|   | Comments Model  |   |
+|---|---|---|
+| id  | IntegerField  |   |
+| post  | ForeignKey posts  |   |
+| user | ForeignKey profile |   |
+| content  | TextField  |   |
+| date  | DateField  |   |
+| timestamp  | TimeField  |   |
+
+|   | Profile Model  |   |
+|---|---|---|
+| id  | IntegerField  |   |
+| user | ForeignKey auth.user |   |
+| bio  | TextField  |   |
+| admin  | BooleanField  |   |
+
+|   | Categories Model  |   |
+|---|---|---|
+| id  | IntegerField  |   |
+| name | CharField |   |
+
 <a name="wireframes"></a>
 
 ### Wireframes ###
@@ -64,6 +102,23 @@ Wireframes have been made for desktop, tablet and mobile versions of each page o
 
 - [**Homepage**](docs/wireframes/homepage)
     - [**Homepage Desktop**](docs/wireframes/homepage/homepage-desktop.png)
+    - [**Homepage Tablet**](docs/wireframes/homepage/homepage-tablet.png)
+    - [**Homepage Mobile**](docs/wireframes/homepage/homepage-mobile.png)
+
+- [**Account Page**](docs/wireframes/account-page)
+    - [**Account Page Desktop**](docs/wireframes/account-page/account-page-desktop.png)
+    - [**Account Page Tablet**](docs/wireframes/account-page/account-page-tablet.png)
+    - [**Account Page Mobile**](docs/wireframes/account-page/account-page-mobile.png)
+
+- [**Article Page**](docs/wireframes/article-page)
+    - [**Article Page Desktop**](docs/wireframes/article-page/post-desktop.png)
+    - [**Article Page Tablet**](docs/wireframes/article-page/post-tablet.png)
+    - [**Article Page Mobile**](docs/wireframes/article-page/post-mobile.png)
+
+- [**Posts Page**](docs/wireframes/posts-page)
+    - [**Posts Page Desktop**](docs/wireframes/posts-page/posts-page-desktop.png)
+    - [**Posts Page Tablet**](docs/wireframes/posts-page/posts-page-tablet.png)
+    - [**Posts Page Mobile**](docs/wireframes/posts-page/posts-page-mobile.png)
 
 <a name="colors"></a>
 
