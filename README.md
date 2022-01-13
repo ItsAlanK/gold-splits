@@ -88,8 +88,7 @@ Below you will find the structure and models that are used in the database for t
 | id  | IntegerField  |   |
 | title  | CharField  |   |
 | author | ForeignKey profile  | ManyToOne |
-| date  | DateField  |   |
-| timestamp  | TimeField  |   |
+| date  | DateTime  |   |
 | content  | TextField  |   |
 | likes  | IntegerField  |   |
 | hero image  | URLField  |   |
@@ -102,8 +101,7 @@ Below you will find the structure and models that are used in the database for t
 | post  | ForeignKey posts  | ManyToMany  |
 | user | ForeignKey profile | ManyToMany  |
 | content  | TextField  |   |
-| date  | DateField  |   |
-| timestamp  | TimeField  |   |
+| date  | DateTime  |   |
 
 |   | Profile Model  |   |
 |---|---|---|
