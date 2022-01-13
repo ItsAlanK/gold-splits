@@ -16,7 +16,6 @@ This project will use the Django framework for a MVC based application using Pos
 - [UX](#ux)
     - [Epics](#user-goals)
     - [User Stories](#user-stories)
-    - [Owner's Goals](#owners-goals)
 - [Design Choices](#design-choices)
     - [Structure](#structure)
     - [Wireframes](#wireframes)
@@ -73,12 +72,6 @@ User Stories are grouped based on the epic they were distilled from.
     - As an admin I can delete posts and users so that I can moderate the content on the platform
     - As an admin I can create categories so that users can add categories to their posts to organise content catalog
     - As an admin I can delete comments so that the comments sections of posts can be moderated
-
-<a name="owners-goals"></a>
-
-### Owner's Goals ###
-
-<a name="design-choices"></a>
 
 ## Design Choices ##
 
@@ -186,9 +179,23 @@ Blue was chosen as the primary base tone to separate design from that of other p
 
 ### Local Deployment ###
 
+Django, psycopg2, gunicorn, dj-database
+
+Create S3 account, make bucket
+
+S3, boto install
+
+Settings
+
+Set up env.py
+
 <a name="heroku"></a>
 
 ### Heroku Deployment ###
+
+Create app, add postgres
+
+Config vars
 
 <a name="technologies"></a>
 
