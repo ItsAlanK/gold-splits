@@ -64,20 +64,20 @@ Below you will find the structure and models that are used in the database for t
 |---|---|---|
 | id  | IntegerField  |   |
 | title  | CharField  |   |
-| author | ForeignKey profile  |   |
+| author | ForeignKey profile  | ManyToOne |
 | date  | DateField  |   |
 | timestamp  | TimeField  |   |
 | content  | TextField  |   |
 | likes  | IntegerField  |   |
 | hero image  | URLField  |   |
-| category  | ForgeignKey category  |   |
+| category  | ForgeignKey category  | ManyToOne  |
 | slug  | SlugField  |   |
 
 |   | Comments Model  |   |
 |---|---|---|
 | id  | IntegerField  |   |
-| post  | ForeignKey posts  |   |
-| user | ForeignKey profile |   |
+| post  | ForeignKey posts  | ManyToMany  |
+| user | ForeignKey profile | ManyToMany  |
 | content  | TextField  |   |
 | date  | DateField  |   |
 | timestamp  | TimeField  |   |
@@ -85,7 +85,7 @@ Below you will find the structure and models that are used in the database for t
 |   | Profile Model  |   |
 |---|---|---|
 | id  | IntegerField  |   |
-| user | ForeignKey auth.user |   |
+| user | ForeignKey auth.user | OneToOne  |
 | bio  | TextField  |   |
 | admin  | BooleanField  |   |
 
