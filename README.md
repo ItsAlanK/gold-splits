@@ -14,7 +14,7 @@ This project will use the Django framework for a MVC based application using Pos
 ## Table of contents 
 
 - [UX](#ux)
-    - [User Goals](#user-goals)
+    - [Epics](#user-goals)
     - [User Stories](#user-stories)
     - [Owner's Goals](#owners-goals)
 - [Design Choices](#design-choices)
@@ -38,11 +38,41 @@ This project will use the Django framework for a MVC based application using Pos
 
 <a name="user-goals"></a>
 
-### User Goals ###
+### Epics ###
+
+Epics were used to identify the broad features and design considerations before breaking them down into the indivual user stories used to design the site.
+1. As a user I can browse for posts I am interested in so that I can learn more about speedruns and games I am interested in.
+2. As a user I can make posts in various categories to share my ideas and accomplishments with others
+3. As a user I can like and comment on posts so that I can be involved in the community without creating posts.
+4. As an admin I can manage posts so that content can be categorized and moderated.
 
 <a name="user-stories"></a>
 
 ### User Stories ###
+
+User Stories are grouped based on the epic they were distilled from.
+
+- Epic One: Browsing Content
+    - As a user I can view a list of posts on the site so that I can browse for posts I may be interested in
+    - As a user I can refine the list of posts by search or category so that I can better browse for a particular game or topic
+    - As a user I can click a specific post so that so that I can read its content
+    - As a user I can see the date a post was created on so that I know which posts are most recent/relevant
+
+- Epic Two: Creating Content
+    - As a user I can register an account so that I can create posts and like and comment on others' posts
+    - As a user I can create a post so that I can share my ideas/accomplishments on the platform
+    - As a user I can upload images and videos to my post so that readers can watch my runs/clips and gain more context
+    - As a user I can edit and delete my posts so that I can maintain my content as I wish
+
+- Epic Three: Community Engagement
+    - As a user I can view comments left on a post so that follow the discussion
+    - As a user I can leave a like on posts so that I can give quick positive feedback on a post
+    - As a user I can write, edit and delete comments on a post so that I can be involved in the discussions
+
+- Epic Four: Admin Control
+    - As an admin I can delete posts and users so that I can moderate the content on the platform
+    - As an admin I can create categories so that users can add categories to their posts to organise content catalog
+    - As an admin I can delete comments so that the comments sections of posts can be moderated
 
 <a name="owners-goals"></a>
 
