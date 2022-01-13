@@ -60,6 +60,11 @@ This project will use the Django framework for a MVC based application using Pos
 
 ### Wireframes ###
 
+Wireframes have been made for desktop, tablet and mobile versions of each page of the site. Links to each can be found below. Wireframes were created using [**Balsamiq**](https://balsamiq.com/wireframes/)
+
+- [**Homepage**](docs/wireframes/homepage)
+    - [**Homepage Desktop**](docs/wireframes/homepage/homepage-desktop.png)
+
 <a name="colors"></a>
 
 ### Colors & Fonts ###
