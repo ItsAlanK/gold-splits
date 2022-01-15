@@ -31,6 +31,9 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 DEBUG = os.environ.get('DEVELOP')
 
 ALLOWED_HOSTS = ['gold-splits.herokuapp.com', 'localhost']
+CSRF_TRUSTED_ORIGINS = [
+    "https://8000-green-skunk-b2jgevss.ws-eu27.gitpod.io",
+    "https://gold-splits.herokuapp.com/"]
 
 
 # Application definition
@@ -44,6 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'storages',
     'posts',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -133,6 +138,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+CKEDITOR_UPLOAD_PATH = '/content/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
