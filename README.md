@@ -81,7 +81,7 @@ User Stories are grouped based on the epic they were distilled from.
 
 Below you will find the structure and models that are used in the database for this project. Diagram was created using [**DrawSQL**](https://drawsql.app/)
 
-![Structure of Database showing models](docs/db_diagram.png)
+![Structure of Database showing models](docs/design/db-diagram.png)
 
 |   | Posts Model  |   |
 |---|---|---|
@@ -91,7 +91,7 @@ Below you will find the structure and models that are used in the database for t
 | date  | DateTime  |   |
 | content  | TextField  |   |
 | likes  | IntegerField  |   |
-| hero image  | URLField  |   |
+| hero image  | ImageField  |   |
 | category  | ForgeignKey category  | ManyToOne  |
 | slug  | SlugField  |   |
 
@@ -151,7 +151,7 @@ The dark tone was chosen to keep the screen dark and easily readable in low ligh
 
 Blue was chosen as the primary base tone to separate design from that of other popular game/speedrun related sites such as [**Twitch.tv**](https://twitch.tv) which uses purple and [**Speedrun.com**](https://speedrun.com) which is green.
 
-![Coolors Color Palette](docs/color-palette.png)
+![Coolors Color Palette](docs/design/color-palette.png)
 
 <a name="features"></a>
 
