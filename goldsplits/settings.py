@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'posts',
     'ckeditor',
     'ckeditor_uploader',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
