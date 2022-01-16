@@ -6,19 +6,9 @@
     <h1 class="text-white text-center text-lg-start display-4">All Posts</h1>
     <div class="row row-cols-1 row-cols-lg-2">
         {% for post in post_list %}
-        <div class="card">
-            <div class="row">
-                <div class="card-body col-8">
-                    <p class="text-muted"> {{ post.category }}</p>
-                    <h2> {{ post.title }}</h2>
-                    <p class="text-muted"> {{ post.author }}, {{ post.date|date:'d-m-Y, H:i' }}</p>
-                    <p class="">{{ post.content|safe|truncatewords_html:25 }}</p>
-                </div>
-                <div class="col-4 d-none d-md-block">
-                    <img class="img-fluid" src=" {{ post.hero_image.url }}">
-                </div>
-            </div>
-        </div>
+
+        {% include '../components/post-card.html' %}
+
         {% endfor %}
     </div>
     {% if is_paginated %}
