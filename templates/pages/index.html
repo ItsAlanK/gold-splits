@@ -1,7 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div>
-    Hello
+{% include '../components/header.html' %}
+
+<div class="container col-10">
+    <div class="row row-cols-2">
+        {% for post in post_list %}
+        {% if forloop.counter <= 8 %}
+        <div class="card">
+            <div class="row">
+                <div class="col-4">
+                    <img class="img-fluid" src=" {{ post.hero_image.url }}">
+                </div>
+                <div class="card-body col-8">
+                    <p class="author"> Author: {{ post.author }}</p>
+                    <p class="author"> Date: {{ post.date }}</p>
+                    <p class="author">{{ post.content|safe }}</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
 </div>
 {% endblock %}
