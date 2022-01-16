@@ -25,7 +25,8 @@ class Post(models.Model):
     hero_image = models.FileField(upload_to="media/")
     likes = models.ManyToManyField(User, related_name="likes", blank=True)
     category = models.ForeignKey(
-        Categories, on_delete=models.SET_DEFAULT, default="General", related_name="posts")
+        Categories, on_delete=models.SET_DEFAULT,
+        default="General", related_name="posts")
 
     class Meta:
         """Sorts model in descending order by date created."""
