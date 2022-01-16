@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from ckeditor_uploader.fields import RichTextUploadingField
 
 
-class Categories(models.Model):
+class Category(models.Model):
     """Model holding category names
     can only be created or removed by admins
     """
@@ -25,7 +25,7 @@ class Post(models.Model):
     hero_image = models.FileField(upload_to="media/")
     likes = models.ManyToManyField(User, related_name="likes", blank=True)
     category = models.ForeignKey(
-        Categories, on_delete=models.SET_DEFAULT,
+        Category, on_delete=models.SET_DEFAULT,
         default="General", related_name="posts")
 
     class Meta:
@@ -40,7 +40,7 @@ class Post(models.Model):
         return self.likes.count()
 
 
-class Comments(models.Model):
+class Comment(models.Model):
     """Model containing comment data"""
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="comments")
