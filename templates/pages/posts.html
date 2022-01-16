@@ -3,11 +3,9 @@
 {% block content %}
 
 <div class="container col-10">
-    <hr class="text-light">
-    <h1 class="text-white text-center text-lg-start display-4">Hot Posts</h1>
+    <h1 class="text-white text-center text-lg-start display-4">All Posts</h1>
     <div class="row row-cols-1 row-cols-lg-2">
         {% for post in post_list %}
-        {% if forloop.counter <= 8 %}
         <div class="card">
             <div class="row">
                 <div class="card-body col-8">
@@ -21,11 +19,10 @@
                 </div>
             </div>
         </div>
-        {% endif %}
         {% endfor %}
     </div>
     <div class="container col-8 d-flex justify-content-center mt-2">
-        <a href="{% url 'posts'%}" role="button" class="btn btn-outline-secondary btn-lg">More Posts</button></a>
+        <a href="#" role="button" class="btn btn-outline-secondary btn-lg">More Posts</button></a>
     </div>
 </div>
 </div>
