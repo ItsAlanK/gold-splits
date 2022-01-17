@@ -1,7 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p>
-    {{ post.content | safe}}
-</p>
+
+<div class="container col-10 col-lg-8 mt-5">
+    <div class="text-center">
+        <p class="text-muted"> {{ post.category }}</p>
+        <h1 class="display-1">{{ post.title }}</h1>
+        <h3 class="text-muted"> {{ post.author }}</h3>
+        <p class="text-muted"> {{ post.date|date:'d-m-Y, H:i' }}</p>
+    </div>
+    <div class="hero-image">
+        <img src="{{ post.hero_image.url }}" class="img-fluid">
+    </div>
+    <p>
+        {{ post.content | safe}}
+    </p>
+</div>
 {% endblock %}

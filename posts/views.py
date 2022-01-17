@@ -18,7 +18,7 @@ class AllPosts(generic.ListView):
     paginate_by = 10
 
 
-class Post_detail(View):
+class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
