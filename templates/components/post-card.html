@@ -2,7 +2,9 @@
     <div class="row">
         <div class="card-body col-8">
             <p class="text-muted"> {{ post.category }}</p>
-            <h2> {{ post.title }}</h2>
+            <a href="{% url 'post_page' post.slug %}">
+                <h2> {{ post.title }}</h2>
+            </a>
             <p class="text-muted"> {{ post.author }}, {{ post.date|date:'d-m-Y, H:i' }}</p>
             <p class="">{{ post.content|safe|truncatewords_html:25 }}</p>
         </div>
