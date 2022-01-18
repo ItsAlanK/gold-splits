@@ -5,6 +5,7 @@
     <hr class="text-light">
     <h1 class="text-white text-center text-lg-start display-4">Hot Posts</h1>
     <div class="row row-cols-1 row-cols-lg-2">
+        <!-- Loop through posts in post_list and return first 8 to display cards for -->
         {% for post in post_list %}
         {% if forloop.counter <= 8 %}
 
