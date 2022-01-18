@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
-from .models import Post
+from .models import Post, Comment
 from allauth.account.forms import LoginForm, SignupForm
 from .forms import CommentForm
 
@@ -10,6 +10,11 @@ class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.order_by('-date')
     template_name = 'pages/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["comments"] = Comment.objects.all()
+        return context
 
 
 class AllPosts(generic.ListView):
