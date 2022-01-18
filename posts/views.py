@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Post
+from allauth.account.forms import LoginForm, SignupForm
 
 
 class PostList(generic.ListView):
@@ -8,7 +9,6 @@ class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.order_by('-date')
     template_name = 'pages/index.html'
-
 
 class AllPosts(generic.ListView):
     """List of all posts for Posts page"""
