@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% load crispy_forms_tags %}
 
 <div class="container col-10 col-lg-8 mt-5">
     <div class="text-center">
-        <p class="text-muted"> {{ post.category }}</p>
-        <h1 class="display-1">{{ post.title }}</h1>
-        <h3 class="text-muted"> {{ post.author }}</h3>
-        <p class="text-muted"> {{ post.date|date:'d-m-Y, H:i' }}</p>
+        <p class="text-muted m-auto"> {{ post.category }}</p>
+        <h1 class="display-1 m-auto">{{ post.title }}</h1>
+        <h3 class="text-muted m-auto"> {{ post.author }}</h3>
+        <p class="text-muted m-auto"> {{ post.date|date:'d-m-Y, H:i' }}</p>
     </div>
     <div class="hero-image">
         <img src="{{ post.hero_image.url }}" class="img-fluid">
@@ -15,5 +16,15 @@
     <p>
         {{ post.content | safe}}
     </p>
+    <div class="row text-center text-md-start">
+        <div class="col-3 offset-3 col-md-1 offset-md-0">
+            <i class="fas fa-heart"></i> {{ post.number_of_likes }}
+        </div>
+        <div class="col-3">
+            {% with comments.count as total_comments %}
+            <i class="fas fa-comments"></i> {{ total_comments }}
+            {% endwith %}
+        </div>
+    </div>
 </div>
 {% endblock %}
