@@ -1,7 +1,24 @@
 <!-- Like and Comment Counters component -->
 <div class="row text-center text-md-start">
-    <div class="col-3 offset-3 col-md-1 offset-md-0">
+    <div class="col-3 offset-3 col-md-1 offset-md-0 text-nowrap">
+        {% if user.is_authenticated %}
+        <form action="{% url 'add_like' post.slug %}" method="POST">
+            {% csrf_token %}
+            {% if liked %}
+            <button type="submit" name="blogpost_id" value="{{post.slug}}">
+                <i class="fas fa-heart"></i>
+            </button>
+            {{ post.number_of_likes }}
+            {% else %}
+            <button type="submit" name="blogpost_id" value="{{post.slug}}">
+                <i class="far fa-heart"></i>
+            </button>
+            {{ post.number_of_likes }}
+            {% endif %}
+        </form>
+        {% else %}
         <i class="fas fa-heart"></i> {{ post.number_of_likes }}
+        {% endif %}
     </div>
     <div class="col-3">
         {% with comments.count as total_comments %}
