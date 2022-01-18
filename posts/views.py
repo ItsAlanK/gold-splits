@@ -37,6 +37,6 @@ class PostDetail(View):
             {
                 "post": post,
                 "comments": comments,
-                "Comment_form": CommentForm(),
+                "comment_form": CommentForm(),
             }
         )
