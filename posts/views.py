@@ -40,3 +40,27 @@ class PostDetail(View):
                 "comment_form": CommentForm(),
             }
         )
+
+    def post(self, request, slug, *args, **kwargs):
+        post = get_object_or_404(Post, slug=slug)
+        comments = post.comments.order_by('date')
+
+        comment_form = CommentForm(data=request.POST)
+
+        if comment_form.is_valid():
+            comment_form.instance.user = request.user
+            comment = comment_form.save(commit=False)
+            comment.post = post
+            comment.save()
+        else:
+            comment_form = CommentForm()
+
+        return render(
+            request,
+            "pages/post-page.html",
+            {
+                "post": post,
+                "comments": comments,
+                "comment_form": CommentForm(),
+            }
+        )
