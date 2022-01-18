@@ -19,8 +19,12 @@
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             </form>
             <div class="col-md-3 text-end">
-                <button type="button" class="btn btn-outline-primary me-2">Login</button>
-                <button type="button" class="btn btn-primary">Sign-up</button>
+                {% if user.is_authenticated %}
+                <a class="btn btn-outline-primary me-2" href="{% url 'account_logout' %}">Logout</a>
+                {% else %}
+                <a class="btn btn-outline-primary me-2" href="{% url 'account_login' %}">Login</a>
+                <a class="btn btn-primary" href="{% url 'account_signup' %}">Sign-up</a>
+                {% endif %}
             </div>
         </div>
     </div>
