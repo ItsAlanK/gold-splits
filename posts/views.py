@@ -3,6 +3,7 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.utils.text import slugify
 from .models import Post, Comment
+from django.db.models import Count
 from allauth.account.forms import LoginForm, SignupForm
 from .forms import CommentForm, PostForm
 
@@ -10,7 +11,7 @@ from .forms import CommentForm, PostForm
 class PostList(generic.ListView):
     """Post list which shows on home page"""
     model = Post
-    queryset = Post.objects.order_by('-date')
+    queryset = Post.objects.annotate(q_count=Count('likes')).order_by('-q_count')[:7]
     template_name = 'pages/index.html'
 
     def get_context_data(self, **kwargs):
