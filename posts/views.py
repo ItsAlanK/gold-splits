@@ -123,3 +123,11 @@ class EditPost(generic.UpdateView):
 
     def get_success_url(self):
         return reverse('post_page', kwargs={'slug': self.object.slug})
+
+
+class DeletePost(generic.DeleteView):
+    model = Post
+    template_name = 'pages/delete-post.html'
+
+    def get_success_url(self):
+        return reverse('home')
