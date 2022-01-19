@@ -9,6 +9,9 @@
         <h1 class="display-1 m-auto">{{ post.title }}</h1>
         <h3 class="text-muted m-auto"> {{ post.author }}</h3>
         <p class="text-muted m-auto"> {{ post.date|date:'d-m-Y, H:i' }}</p>
+        {% if user == post.author %}
+        <a href="{% url 'edit_post' post.slug %}">Edit post</a>
+        {% endif %}
     </div>
     <div class="hero-image mt-1">
         {% if "placeholder" in post.featured_image.url %}
@@ -22,8 +25,6 @@
     </p>
     {% include '../components/counters.html' %}
     <hr>
-
-    <a href="{% url 'edit_post' post.slug %}">Edit post</a>
 
     <div>
         <h3 class="text-center text-md-start mb-3">Comments:</h3>
