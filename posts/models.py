@@ -1,5 +1,7 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 from ckeditor_uploader.fields import RichTextUploadingField
 
 
@@ -39,6 +41,7 @@ class Post(models.Model):
     def number_of_likes(self):
         """Counts number of likes on post."""
         return self.likes.count()
+
 
 
 class Comment(models.Model):

@@ -120,3 +120,6 @@ class EditPost(generic.UpdateView):
     model = Post
     template_name = 'pages/edit-post.html'
     form_class = PostForm
+
+    def get_success_url(self):
+        return reverse('post_page', kwargs={'slug': self.object.slug})
