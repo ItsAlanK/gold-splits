@@ -4,16 +4,16 @@
 {% load crispy_forms_tags %}
 <div class="container">
     {% if user.is_authenticated %}
-    <h1>Create a Post</h1>
+    <h1>Edit Post</h1>
 
     <form method="post">
         {% csrf_token %}
-        {{ post_form.media }}
-        {{ post_form | crispy }}
-        <button type="submit">Create Post</button>
+        {{ form.media }}
+        {{ form.as_p }}
+        <button type="submit">Edit Post</button>
     </form>
     {% else %}
-    <h3><a href="{% url 'account_login' %}">Sign in</a> to create a post</h3>
+    <h3><a href="{% url 'account_login' %}">Sign in</a> to edit a post</h3>
     {% endif %}
 </div>
 

@@ -112,4 +112,11 @@ class CreatePost(View):
         else:
             post_form = PostForm()
 
-        return HttpResponseRedirect(reverse('post_page', args=[post_form.instance.slug]))
+        return HttpResponseRedirect(
+            reverse('post_page', args=[post_form.instance.slug]))
+
+
+class EditPost(generic.UpdateView):
+    model = Post
+    template_name = 'pages/edit-post.html'
+    form_class = PostForm
