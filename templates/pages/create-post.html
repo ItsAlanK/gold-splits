@@ -8,6 +8,7 @@
 
 <form method="post">
     {% csrf_token %}
+    {{ post_form.media }}
     {{ post_form | crispy }}
     <button type="submit">Create Post</button>
 </form>
