@@ -11,7 +11,11 @@
         <p class="text-muted m-auto"> {{ post.date|date:'d-m-Y, H:i' }}</p>
     </div>
     <div class="hero-image mt-1">
+        {% if "placeholder" in post.featured_image.url %}
+        <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
+        {% else %}
         <img src="{{ post.hero_image.url }}" class="img-fluid">
+        {% endif %}
     </div>
     <p>
         {{ post.content | safe}}

@@ -22,7 +22,8 @@ class Post(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(max_length=200, unique=True)
     content = RichTextUploadingField()
-    hero_image = models.FileField(upload_to="media/")
+    hero_image = models.FileField(
+        upload_to="media/", blank=True, default='placeholder')
     likes = models.ManyToManyField(User, related_name="likes", blank=True)
     category = models.ForeignKey(
         Category, on_delete=models.SET_DEFAULT,

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+{% if user.is_authenticated %}
+<h1>Create a Post</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ post_form | crispy }}
+    <button type="submit">Create Post</button>
+</form>
+{% else %}
+<h3><a href="{% url 'account_login' %}">Sign in</a> create a post</h3>
+{% endif %}
+
+{% endblock %}

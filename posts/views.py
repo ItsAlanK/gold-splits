@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+from django.utils.text import slugify
 from .models import Post, Comment
 from allauth.account.forms import LoginForm, SignupForm
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 
 
 class PostList(generic.ListView):
@@ -86,3 +87,29 @@ class AddLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_page', args=[slug]))
+
+
+class CreatePost(View):
+
+    def get(self, request, *args, **kwargs):
+
+        return render(
+            request,
+            "pages/create-post.html",
+            {
+                "post_form": PostForm(),
+            }
+        )
+
+    def post(self, request, *args, **kwargs):
+        post_form = PostForm(data=request.POST)
+
+        if post_form.is_valid():
+            post_form.instance.author = request.user
+            post_form.instance.slug = slugify(post_form.instance.title)
+            post = post_form.save(commit=False)
+            post.save()
+        else:
+            post_form = PostForm()
+
+        return HttpResponseRedirect(reverse('post_page', args=[post_form.instance.slug]))
