@@ -96,6 +96,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'goldsplits.wsgi.application'
 
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = '/static/app-messages'
+
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
