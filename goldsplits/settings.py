@@ -156,8 +156,7 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 CKEDITOR_UPLOAD_PATH = '/content/'
 
-EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
-EMAIL_FILE_PATH = os.path.join(STATICFILES_DIRS, 'em')
+EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
