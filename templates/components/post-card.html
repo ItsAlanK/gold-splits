@@ -9,7 +9,7 @@ Must be looped through more list of posts -->
             <a href="{% url 'post_page' post.slug %}">
                 <h2> {{ post.title }}</h2>
             </a>
-            <p class="text-muted"><a href="{% url 'profile_page' post.author.id %}">{{ post.author }}</a>, {{ post.date|date:'d-m-Y, H:i' }}</p>
+            <p class="text-muted"><a href="{% url 'profile_page' post.author %}">{{ post.author }}</a>, {{ post.date|date:'d-m-Y, H:i' }}</p>
             <a href="{% url 'post_page' post.slug %}">
                 <p class="">{{ post.content|safe|truncatewords_html:25 }}</p>
             </a>
