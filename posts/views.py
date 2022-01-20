@@ -25,7 +25,7 @@ class AllPosts(generic.ListView):
     model = Post
     queryset = Post.objects.order_by('-date')
     template_name = 'pages/posts.html'
-    paginate_by = 10
+    paginate_by = 8
 
 
 class PostDetail(View):

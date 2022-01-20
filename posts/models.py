@@ -37,6 +37,7 @@ class Post(models.Model):
     category = models.ForeignKey(
         Category, on_delete=models.SET_DEFAULT,
         default="General", related_name="posts")
+    featured = models.BooleanField(default=False)
 
     class Meta:
         """Sorts model in descending order by date created."""

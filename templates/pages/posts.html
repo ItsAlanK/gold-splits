@@ -3,6 +3,14 @@
 {% block content %}
 
 <div class="container col-10">
+    <h1 class="text-white text-center text-lg-start display-4">Featured Posts</h1>
+    <div class="row">
+        {% for post in post_list %}
+        {% if post.featured %}
+        {% include '../components/post-card.html' %}
+        {% endif %}
+        {% endfor %}
+    </div>
     <h1 class="text-white text-center text-lg-start display-4">All Posts</h1>
     <div class="row row-cols-1 row-cols-lg-2">
         {% for post in post_list %}
