@@ -10,4 +10,4 @@ class EditProfile(generic.UpdateView):
     form_class = ProfileForm
 
     def get_success_url(self):
-        return reverse('profile_page', kwargs={'name': self.object.user})
+        return reverse('home')

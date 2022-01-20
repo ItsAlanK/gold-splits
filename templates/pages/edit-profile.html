@@ -5,8 +5,12 @@
 <div class="container">
     {% if user.is_authenticated %}
     <h1>Edit Profile</h1>
-
-    <form method="post">
+    {% if "placeholder" in profile.profile_img.url %}
+    <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
+    {% else %}
+    <img src="{{ profile.profile_img.url }}">
+    {% endif %}
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.media }}
         {{ form.as_p }}

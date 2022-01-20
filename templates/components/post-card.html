@@ -16,7 +16,7 @@ Must be looped through more list of posts -->
         </div>
         <div class="col-4 d-none d-md-block">
             <a href="{% url 'post_page' post.slug %}">
-                <img class="img-thumbnail" src=" {{ post.hero_image.url }}">
+                <img class="img-thumbnail" src="{{ post.hero_image.url }}">
             </a>
         </div>
     </div>

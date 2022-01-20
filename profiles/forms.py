@@ -6,4 +6,4 @@ class ProfileForm(forms.ModelForm):
     """Model extends base form to take comments model"""
     class Meta:
         model = Profile
-        fields = ('bio',)
+        fields = ('profile_img', 'bio',)
