@@ -15,10 +15,16 @@ Including another URLconf
 """
 from django.urls import path, include, re_path
 from django.contrib import admin
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import never_cache
+from ckeditor_uploader import views as ckeditor_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    re_path(r'^ckeditor/upload/', login_required(ckeditor_views.upload),
+            name='ckeditor_upload'),
+    re_path(r'^ckeditor/browse/', never_cache(login_required(ckeditor_views.browse)),
+            name='ckeditor_browse'),
     path('', include('posts.urls'), name='posts_urls'),
     path('profiles/', include('profiles.urls'), name='profile_urls'),
     path('accounts/', include('allauth.urls'))
