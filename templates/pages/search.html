@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-white text-center text-lg-start display-4">Search Results</h1>
+    {% if search %}
+    You searched for {{ search }}
+    <br>
+    Results:
+    {% for result in results %}
+    <h1>{{ result }}</h1>
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

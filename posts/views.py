@@ -139,3 +139,18 @@ def category(request, name):
     posts = Post.objects.filter(category=category)
     return render(
         request, 'pages/category.html', {'name': name, 'posts': posts})
+
+def search_results(request):
+    if request.method == "POST":
+        search = request.POST['search']
+        results = Post.objects.filter(title__contains=search)
+        return render(
+            request, 'pages/search.html', {
+                'search': search,
+                'results': results
+            }
+        )
+    else:
+        return render(
+            request, 'pages/search.html', {}
+        )
