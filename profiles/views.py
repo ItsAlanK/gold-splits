@@ -6,7 +6,7 @@ from .forms import ProfileForm
 
 class EditProfile(generic.UpdateView):
     model = Profile
-    template_name = 'pages/edit-profile.html'
+    template_name = 'pages/profile/edit-profile.html'
     form_class = ProfileForm
 
     def get_success_url(self):

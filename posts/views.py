@@ -39,7 +39,7 @@ class PostDetail(View):
 
         return render(
             request,
-            "pages/post-page.html",
+            "pages/post-management/post-page.html",
             {
                 "post": post,
                 "comments": comments,
@@ -67,7 +67,7 @@ class PostDetail(View):
 
         return render(
             request,
-            "pages/post-page.html",
+            "pages/post-management/post-page.html",
             {
                 "post": post,
                 "comments": comments,
@@ -96,14 +96,14 @@ class CreatePost(View):
 
         return render(
             request,
-            "pages/create-post.html",
+            "pages/post-management/create-post.html",
             {
                 "post_form": PostForm(),
             }
         )
 
     def post(self, request, *args, **kwargs):
-        post_form = PostForm(data=request.POST)
+        post_form = PostForm(request.POST, request.DATA)
 
         if post_form.is_valid():
             post_form.instance.author = request.user
@@ -119,7 +119,7 @@ class CreatePost(View):
 
 class EditPost(generic.UpdateView):
     model = Post
-    template_name = 'pages/edit-post.html'
+    template_name = 'pages/post-management/edit-post.html'
     form_class = PostForm
 
     def get_success_url(self):
@@ -128,7 +128,7 @@ class EditPost(generic.UpdateView):
 
 class DeletePost(generic.DeleteView):
     model = Post
-    template_name = 'pages/delete-post.html'
+    template_name = 'pages/post-management/delete-post.html'
 
     def get_success_url(self):
         return reverse('home')

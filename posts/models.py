@@ -5,11 +5,18 @@ from django.utils.text import slugify
 from ckeditor_uploader.fields import RichTextUploadingField
 
 
+from django.core.validators import RegexValidator
+
+alphanumeric = RegexValidator(
+    r'^[0-9a-zA-Z ]*$', 'Only alphanumeric characters are allowed.')
+
+
 class Category(models.Model):
     """Model holding category names
     can only be created or removed by admins
     """
-    name = models.CharField(max_length=30, unique=True)
+    name = models.CharField(max_length=30, unique=True,
+                            validators=[alphanumeric])
     description = models.CharField(max_length=255)
 
     def __str__(self):
@@ -25,7 +32,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     content = RichTextUploadingField()
     hero_image = models.FileField(
-        upload_to="media/", blank=True, default='placeholder')
+        upload_to="media/", default='../media/placeholder-avatar.png')
     likes = models.ManyToManyField(User, related_name="likes", blank=True)
     category = models.ForeignKey(
         Category, on_delete=models.SET_DEFAULT,
@@ -41,7 +48,6 @@ class Post(models.Model):
     def number_of_likes(self):
         """Counts number of likes on post."""
         return self.likes.count()
-
 
 
 class Comment(models.Model):
