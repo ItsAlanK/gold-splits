@@ -103,7 +103,7 @@ class CreatePost(View):
         )
 
     def post(self, request, *args, **kwargs):
-        post_form = PostForm(request.POST, request.DATA)
+        post_form = PostForm(data=request.POST)
 
         if post_form.is_valid():
             post_form.instance.author = request.user
