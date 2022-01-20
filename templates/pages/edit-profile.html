@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container">
+    {% if user.is_authenticated %}
+    <h1>Edit Profile</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form.as_p }}
+        <button type="submit">Edit Profile</button>
+    </form>
+    {% else %}
+    <h3><a href="{% url 'account_login' %}">Sign in</a> to edit a post</h3>
+    {% endif %}
+</div>
+
+{% endblock %}

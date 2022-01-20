@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'storages',
     'posts',
+    'profiles',
     'ckeditor',
     'ckeditor_uploader',
     'django_cleanup.apps.CleanupConfig',
