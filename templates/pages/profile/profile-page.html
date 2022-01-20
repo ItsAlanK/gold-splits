@@ -5,6 +5,7 @@
 <div class="container">
     <div class="col">
         {{ profile.user }}
+        <img src="{{ profile.profile_img.url }}">"
         {% if user == profile.user %}
         <a class="btn btn-outline-primary me-2" href="{% url 'edit_profile' profile.pk %}">Edit Profile</a>
         {% endif %}

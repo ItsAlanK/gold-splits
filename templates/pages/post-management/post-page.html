@@ -7,7 +7,7 @@
     <div class="text-center">
         <p class="text-muted m-auto"> {{ post.category }}</p>
         <h1 class="display-1 m-auto">{{ post.title }}</h1>
-        <h3 class="text-muted m-auto"> {{ post.author }}</h3>
+        <h3 class="text-muted m-auto"><a href="{% url 'profile_page' post.author %}">{{ post.author }}</a></h3>
         <p class="text-muted m-auto"> {{ post.date|date:'d-m-Y, H:i' }}</p>
         {% if user == post.author %}
         <a href="{% url 'edit_post' post.slug %}">Edit post</a>
