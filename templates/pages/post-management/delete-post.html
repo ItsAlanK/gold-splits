@@ -4,12 +4,16 @@
 {% load crispy_forms_tags %}
 <div class="container">
     {% if user.is_authenticated %}
+    {% if user == post.author %}
     <h1>Delete {{ post.title }}</h1>
 
     <form method="post">
         {% csrf_token %}
         <button type="submit">Delete Post</button>
     </form>
+    {% else %}
+    <h3>You can't delete someone else's Post!</h3>
+    {% endif %}
     {% else %}
     <h3><a href="{% url 'account_login' %}">Sign in</a> to delete posts</h3>
     {% endif %}

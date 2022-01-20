@@ -4,8 +4,8 @@
 {% load crispy_forms_tags %}
 <div class="container">
     {% if user.is_authenticated %}
+    {% if user == post.author %}
     <h1>Edit Post</h1>
-
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.media }}
@@ -13,6 +13,9 @@
         <button type="submit">Edit Post</button>
     </form>
     {% else %}
+    <h3>You can't edit someone else's Post!</h3>
+    {% endif %}
+    {% else%}
     <h3><a href="{% url 'account_login' %}">Sign in</a> to edit a post</h3>
     {% endif %}
 </div>
