@@ -3,12 +3,18 @@
 {% block content %}
 
 <div class="container">
-    {{ profile.user }}
-    <a class="btn btn-outline-primary me-2" href="{% url 'edit_profile' user.pk %}">Edit Profile</a>
-    {{ profile.bio }}
+    <div class="col">
+        {{ profile.user }}
+        {% if user == profile.user %}
+        <a class="btn btn-outline-primary me-2" href="{% url 'edit_profile' profile.pk %}">Edit Profile</a>
+        {% endif %}
+    </div>
+    <div class="col">
+        {{ profile.bio }}
 
-    {% for post in posts %}
-    {% include '../../components/post-card.html' %}
-    {% endfor %}
+        {% for post in posts %}
+        {% include '../../components/post-card.html' %}
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
