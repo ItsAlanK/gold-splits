@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.utils.text import slugify
-from .models import Post, Comment
+from .models import Post, Comment, Category
 from django.db.models import Count
 from allauth.account.forms import LoginForm, SignupForm
 from .forms import CommentForm, PostForm
@@ -132,3 +132,10 @@ class DeletePost(generic.DeleteView):
 
     def get_success_url(self):
         return reverse('home')
+
+
+def category(request, name):
+    category = Category.objects.get(name=name)
+    posts = Post.objects.filter(category=category)
+    return render(
+        request, 'pages/category.html', {'name': name, 'posts': posts})

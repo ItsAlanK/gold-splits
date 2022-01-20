@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container col-10">
+    <h1 class="text-white text-center text-lg-start display-4">Category</h1>
+    <div class="row row-cols-1 row-cols-lg-2">
+        {{ name }}
+    </div>
+    {% for post in posts %}
+    {% include '../components/post-card.html' %}
+    {% endfor%}
+</div>
+{% endblock %}

@@ -3,7 +3,9 @@ Must be looped through more list of posts -->
 <div class="card">
     <div class="row">
         <div class="card-body col-8">
-            <p class="text-muted"> {{ post.category }}</p>
+            <a href="{% url 'category_page' post.category %}">
+                <p class="text-muted"> {{ post.category }}</p>
+            </a>
             <a href="{% url 'post_page' post.slug %}">
                 <h2> {{ post.title }}</h2>
             </a>
