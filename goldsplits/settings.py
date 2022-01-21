@@ -164,6 +164,8 @@ CKEDITOR_CONFIGS = {
     }
 }
 
+X_FRAME_OPTIONS = 'ALLOW-FROM http://ami.responsivedesign.is/'
+
 EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
 # Default primary key field type
