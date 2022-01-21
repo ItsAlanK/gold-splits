@@ -3,7 +3,7 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.utils.text import slugify
 from .models import Post, Comment, Category
-from django.db.models import Count
+from django.db.models import Count, Q
 from allauth.account.forms import LoginForm, SignupForm
 from .forms import CommentForm, PostForm
 
@@ -140,10 +140,11 @@ def category(request, name):
     return render(
         request, 'pages/category.html', {'name': name, 'posts': posts})
 
+
 def search_results(request):
     if request.method == "POST":
         search = request.POST['search']
-        results = Post.objects.filter(title__contains=search)
+        results = Post.objects.filter(Q(title__icontains=search) | Q(content__icontains=search))
         return render(
             request, 'pages/search.html', {
                 'search': search,
