@@ -164,7 +164,25 @@ Blue was chosen as the primary base tone to separate design from that of other p
 
 <a name="future-features"></a>
 
+- User authentication, registration and sign in with Django allauth package.
+- Sign up module on homepage when no user is signed in to support onboarding
+- Dynamic profile related buttons in navbar.
+    - Sign Up/Log In buttons when no user is logged in.
+    - View Profile/Log Out buttons when a user is logged in.
+- List of top posts sorted by most liked on home page with links to authors and and detail views of each post.
+- A post page with featured post section displaying featured posts assigned through admin dashboard and selecting featured checkbox.
+- Categorys pages to sort posts by category.
+- Pagination on post and category pages.
+- Search bar to query posts by title and content.
+- User profile pages to display a profile picture and bio, _(not required)_
+- Like and Comment functionality on posts
+- Ability to create, edit and delete posts. Security checks included to ensure only the author of a post can edit that post.
+
 ### Potential Future Features ###
+
+- Comment threads and replys to encourage more in depth conversation
+- Ability to edit and remove comments from front end _(currently only available to admins)_
+- Social Sign In with Facebook and Google.
 
 <a name="testing"></a>
 
