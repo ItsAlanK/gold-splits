@@ -7,8 +7,8 @@
     You searched for {{ search }}
     <br>
     Results:
-    {% for result in results %}
-    <h1>{{ result }}</h1>
+    {% for post in results %}
+    {% include '../components/post-card.html' %}
     {% endfor %}
     {% endif %}
 </div>

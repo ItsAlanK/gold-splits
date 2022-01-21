@@ -143,13 +143,15 @@ def category(request, name):
 
 
 def search_results(request):
+    
     if request.method == "POST":
         search = request.POST['search']
         results = Post.objects.filter(Q(title__icontains=search) | Q(content__icontains=search))
+        category = Category.objects.all()
         return render(
             request, 'pages/search.html', {
                 'search': search,
-                'results': results
+                'results': results,
             }
         )
     else:
