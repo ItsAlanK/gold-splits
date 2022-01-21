@@ -15,8 +15,8 @@
         {% endif %}
     </div>
     <div class="hero-image mt-1">
-        {% if "placeholder" in post.featured_image.url %}
-        <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
+        {% if 'placeholder' in post.hero_image.url %}
+        <span></span>
         {% else %}
         <img src="{{ post.hero_image.url }}" class="img-fluid">
         {% endif %}

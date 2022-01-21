@@ -32,7 +32,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     content = RichTextUploadingField()
     hero_image = models.FileField(
-        upload_to="media/", default='../media/placeholder-avatar.png')
+        upload_to="media/", default='placeholder')
     likes = models.ManyToManyField(User, related_name="likes", blank=True)
     category = models.ForeignKey(
         Category, on_delete=models.SET_DEFAULT,
