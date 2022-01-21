@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="col">
-        <div class="row">
+        <div class="row offset-3 col-6">
             <div class="col-4 d-inline">
                 <h1>{{ profile.user }}</h1>
             </div>
@@ -16,7 +16,7 @@
             <img class="img-thumbnail" src="{{ profile.profile_img.url }}">
         </div>
     </div>
-    <div class="row my-2 offset-1 col-10">
+    <div class="row my-2 offset-3 col-6">
         <h4>Bio</h4>
         {% if profile.bio %}
             <p>{{ profile.bio }}</p>
