@@ -92,9 +92,10 @@ Below you will find the structure and models that are used in the database for t
 | date  | DateTime  |   |
 | content  | TextField  |   |
 | likes  | IntegerField  |   |
-| hero image  | ImageField  |   |
+| hero_image  | ImageField  |   |
 | category  | ForgeignKey category  | ManyToOne  |
 | slug  | SlugField  |   |
+| featured  | BooleanField  |   |
 
 |   | Comments Model  |   |
 |---|---|---|
@@ -109,12 +110,13 @@ Below you will find the structure and models that are used in the database for t
 | id  | IntegerField  |   |
 | user | ForeignKey auth.user | OneToOne  |
 | bio  | TextField  |   |
-| admin  | BooleanField  |   |
+| profile_img  | ImageField  |   |
 
 |   | Categories Model  |   |
 |---|---|---|
 | id  | IntegerField  |   |
 | name | CharField |   |
+| description | CharField |   |
 
 <a name="wireframes"></a>
 
