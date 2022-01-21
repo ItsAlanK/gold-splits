@@ -2,7 +2,7 @@
 
 {% block content %}
 {% if not user.is_authenticated %}
-{% include '../components/signup-card.html' %}
+    {% include '../components/signup-card.html' %}
 {% endif %}
 <div class="container col-10">
     <hr class="text-light">
@@ -10,16 +10,13 @@
     <div class="row row-cols-1 row-cols-lg-2">
         <!-- Loop through posts in post_list and return first 8 to display cards for -->
         {% for post in post_list %}
-        {% if forloop.counter <= 8 %}
-
-        {% include '../components/post-card.html' %}
-
-        {% endif %}
+            {% if forloop.counter <= 8 %}
+                {% include '../components/post-card.html' %}
+            {% endif %}
         {% endfor %}
     </div>
     <div class="container col-8 d-flex justify-content-center mt-2">
         <a href="{% url 'posts'%}" role="button" class="btn btn-outline-secondary btn-lg">More Posts</button></a>
     </div>
-</div>
 </div>
 {% endblock %}

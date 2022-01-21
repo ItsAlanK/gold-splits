@@ -5,9 +5,12 @@
 <div class="container col-10">
     <h1 class="text-white text-center text-lg-start display-4">{{ name }}</h1>
     <div class="row row-cols-1 row-cols-lg-2">
+        {% for post in posts %}
+            {% include '../components/post-card.html' %}
+        {% endfor %}
     </div>
-    {% for post in posts %}
-    {% include '../components/post-card.html' %}
-    {% endfor%}
+    {% if is_paginated %}
+        {% include '../components/pagination.html' %}
+    {% endif %}
 </div>
 {% endblock %}

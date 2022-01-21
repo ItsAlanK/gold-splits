@@ -3,18 +3,20 @@
 {% block content %}
 {% load crispy_forms_tags %}
 <div class="container">
-    {% if user.is_authenticated %}
-    <h1>Edit Profile</h1>
-    <img src="{{ profile.profile_img.url }}">
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.media }}
-        {{ form.as_p }}
-        <button type="submit">Edit Profile</button>
-    </form>
-    {% else %}
-    <h3><a href="{% url 'account_login' %}">Sign in</a> to edit a post</h3>
-    {% endif %}
+    <div class="col-8 mx-auto">
+        {% if user.is_authenticated %}
+        <h1>Edit Profile</h1>
+        <img class="img-thumbnail col-4 mb-4" src="{{ profile.profile_img.url }}">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.media }}
+            {{ form.as_p }}
+            <button class="btn btn-success" type="submit">Edit Profile</button>
+        </form>
+        {% else %}
+        <h3><a href="{% url 'account_login' %}">Sign in</a> to edit a post</h3>
+        {% endif %}
+    </div>
 </div>
 
 {% endblock %}

@@ -157,6 +157,13 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 CKEDITOR_UPLOAD_PATH = '/content/'
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'width': '100%',
+        'height': 520,
+    }
+}
+
 EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
 # Default primary key field type
