@@ -9,7 +9,7 @@
 
     <form method="post">
         {% csrf_token %}
-        <button type="submit">Delete Post</button>
+        <button class="btn btn-warning" type="submit">Delete Post</button>
     </form>
     {% else %}
     <h3>You can't delete someone else's Post!</h3>
