@@ -1,9 +1,9 @@
 :root {
-  --bg-color: #151828;
-  --offwhite: #fffff5;
-  --blue: #366681;
-  --gold: #f3b153;
-  --red: #aa222d;
+    --bg-color: #151828;
+    --offwhite: #fffff5;
+    --blue: #366681;
+    --gold: #f3b153;
+    --red: #aa222d;
 }
 
 body {
@@ -12,18 +12,18 @@ body {
 }
 
 a {
-    color:inherit;
+    color: inherit;
     text-decoration: none;
 }
 
 a:hover {
-    color:inherit;
+    color: inherit;
     text-decoration: none;
 }
 
 /* Fonts */
 .text-muted {
-    color: #9babb9!important;
+    color: #9babb9 !important;
 }
 
 /* Header */
@@ -35,6 +35,7 @@ a:hover {
 .nav-link {
     color: var(--offwhite);
 }
+
 .nav-link:hover {
     color: var(--gold);
 }
@@ -43,17 +44,17 @@ a:hover {
     color: var(--gold);
 }
 
-button.navbar-toggler{
+button.navbar-toggler {
     color: rgba(255, 255, 255, 0);
 }
 
 .custom-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,242, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,242, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 .custom-toggler.navbar-toggler {
-  border-color: var(--offwhite);
-  border-width: 0.2em;
+    border-color: var(--offwhite);
+    border-width: 0.2em;
 }
 
 /* Cards */
@@ -65,12 +66,12 @@ button.navbar-toggler{
     color: var(--blue)
 }
 
-.custom-card-height{
+.custom-card-height {
     max-height: 20rem;
 }
 
 .card .text-muted {
-    color: #4e5760!important;
+    color: #4e5760 !important;
 }
 
 /* buttons */
@@ -81,5 +82,10 @@ button.navbar-toggler{
 
 .border {
     box-sizing: border-box;
-    border: 10px solid white!important;
+    border: 10px solid white !important;
+}
+
+/* Comment Box */
+textarea.form-control {
+    max-height: 10rem;
 }

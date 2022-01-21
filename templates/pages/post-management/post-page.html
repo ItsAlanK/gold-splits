@@ -32,7 +32,7 @@
                 {% if user.is_authenticated %}
 
                 <h3>Leave a comment:</h3>
-                <form method="post">
+                <form class="col-10 mx-auto" method=" post">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
                     <button type="submit" class="btn my-2 btn-success btn-lg">Submit</button>
