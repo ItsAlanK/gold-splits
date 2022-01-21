@@ -220,6 +220,28 @@ Config vars
 
 ## Technologies ##
 
+### Languages ###
+
+- HTML
+- CSS
+- Python
+
+### Libraries and Frameworks ###
+
+- Bootstrap
+- Font Awesome
+- CKEditor
+
+### Other ###
+
+- Django
+- AWS S3
+- Heroku
+- Postgres
+- Git
+- DrawSQL
+- Balsamiq
+
 <a name="credits"></a>
 
 ## Credits ##
