@@ -79,3 +79,8 @@ button.navbar-toggler{
     border-color: #9babb9;
 }
 
+.border {
+    box-sizing: border-box;
+    border: 10px solid white!important;
+}
+
