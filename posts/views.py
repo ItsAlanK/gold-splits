@@ -38,7 +38,7 @@ class PostDetail(View):
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
-
+        
         return render(
             request,
             "pages/post-management/post-page.html",
@@ -64,6 +64,7 @@ class PostDetail(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
+            return HttpResponseRedirect(reverse('post_page', args=[slug]))
         else:
             comment_form = CommentForm()
 

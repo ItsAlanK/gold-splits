@@ -35,10 +35,10 @@
                 <form method="post">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                    <button type="submit" class="btn my-2 btn-success btn-lg">Submit</button>
                 </form>
                 {% else %}
-                <h3><a href="{% url 'account_login' %}">Sign in</a> to leave a comment</h3>
+                <h3><a class="btn btn-lg btn-outline-primary" href="{% url 'account_login' %}">Sign in</a> to leave a comment</h3>
                 {% endif %}
             </div>
         </div>
