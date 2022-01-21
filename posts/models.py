@@ -32,7 +32,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     content = RichTextUploadingField()
     hero_image = models.FileField(
-        upload_to="media/", default='placeholder')
+        upload_to="media/", null=True, blank=True)
     likes = models.ManyToManyField(User, related_name="likes", blank=True)
     category = models.ForeignKey(
         Category, on_delete=models.SET_DEFAULT,
@@ -49,6 +49,11 @@ class Post(models.Model):
     def number_of_likes(self):
         """Counts number of likes on post."""
         return self.likes.count()
+    
+    @property
+    def image_url(self):
+        if self.hero_image and hasattr(self.hero_image, 'url'):
+            return self.hero_image.url
 
 
 class Comment(models.Model):

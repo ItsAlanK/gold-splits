@@ -11,7 +11,8 @@ from .forms import CommentForm, PostForm
 class PostList(generic.ListView):
     """Post list which shows on home page"""
     model = Post
-    queryset = Post.objects.annotate(q_count=Count('likes')).order_by('-q_count')[:7]
+    queryset = Post.objects.annotate(
+        q_count=Count('likes')).order_by('-q_count')[:7]
     template_name = 'pages/index.html'
 
     def get_context_data(self, **kwargs):
@@ -91,20 +92,13 @@ class AddLike(View):
         return HttpResponseRedirect(reverse('post_page', args=[slug]))
 
 
-class CreatePost(View):
-
-    def get(self, request, *args, **kwargs):
-
-        return render(
-            request,
-            "pages/post-management/create-post.html",
-            {
-                "post_form": PostForm(),
-            }
-        )
+class CreatePost(generic.CreateView):
+    model = Post
+    template_name = 'pages/post-management/create-post.html'
+    form_class = PostForm
 
     def post(self, request, *args, **kwargs):
-        post_form = PostForm(data=request.POST)
+        post_form = PostForm(request.POST, request.FILES)
 
         if post_form.is_valid():
             post_form.instance.author = request.user
@@ -143,10 +137,10 @@ def category(request, name):
 
 
 def search_results(request):
-    
     if request.method == "POST":
         search = request.POST['search']
-        results = Post.objects.filter(Q(title__icontains=search) | Q(content__icontains=search))
+        results = Post.objects.filter(
+            Q(title__icontains=search) | Q(content__icontains=search))
         category = Category.objects.all()
         return render(
             request, 'pages/search.html', {

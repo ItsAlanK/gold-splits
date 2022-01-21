@@ -8,8 +8,8 @@
 
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ post_form.media }}
-        {{ post_form | crispy }}
+        {{ form.media }}
+        {{ form.as_p }}
         <button type="submit">Create Post</button>
     </form>
     {% else %}

@@ -15,11 +15,7 @@
         {% endif %}
     </div>
     <div class="hero-image mt-1">
-        {% if 'placeholder' in post.hero_image.url %}
-        <span></span>
-        {% else %}
-        <img src="{{ post.hero_image.url }}" class="img-fluid">
-        {% endif %}
+        <img src="{{ post.image_url | default_if_none:'' }}" class="img-fluid">
     </div>
     <p>
         {{ post.content | safe}}
