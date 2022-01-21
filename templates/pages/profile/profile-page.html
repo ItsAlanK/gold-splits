@@ -18,7 +18,11 @@
     </div>
     <div class="row my-2 offset-1 col-10">
         <h4>Bio</h4>
-        <p>{{ profile.bio }}</p>
+        {% if profile.bio %}
+            <p>{{ profile.bio }}</p>
+        {% else %}
+            <p>Looks like there's nothing here yet</p>
+        {% endif %}
     </div>
     <div class="col">
         {% for post in posts %}
