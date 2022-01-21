@@ -5,7 +5,9 @@
 
 <div class="container col-10 col-lg-8 mt-5">
     <div class="text-center">
-        <p class="text-muted m-auto"> {{ post.category }}</p>
+        <a href="{% url 'category_page' post.category %}">
+            <p class="text-muted m-auto"> {{ post.category }}</p>
+        </a>
         <h1 class="display-1 m-auto">{{ post.title }}</h1>
         <h3 class="text-muted m-auto"><a href="{% url 'profile_page' post.author %}">{{ post.author }}</a></h3>
         <p class="text-muted m-auto"> {{ post.date|date:'d-m-Y, H:i' }}</p>
