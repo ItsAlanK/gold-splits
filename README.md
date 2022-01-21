@@ -1,5 +1,6 @@
 # Gold Splits #
 
+![Example of image on all devices](docs/design/responsive-img.png)
 Gold Splits is a platform for speedrunners of various games to gather together to discuss various topics. Post your new personal best times, start a discussion about strategies or create a guide on a route.
 
 This platform will provide user's with a forum where they can:
