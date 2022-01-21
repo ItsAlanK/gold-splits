@@ -23,6 +23,11 @@ a:hover {
     text-decoration: none;
 }
 
+/* Fonts */
+.text-muted {
+    color: #9babb9!important;
+}
+
 /* Header */
 .navbar {
     font-size: 1.2em;
@@ -51,4 +56,28 @@ button.navbar-toggler{
 .custom-toggler.navbar-toggler {
   border-color: var(--offwhite);
   border-width: 0.2em;
-} 
+}
+
+/* Cards */
+.card {
+    color: var(--bg-color);
+}
+
+.card a:hover {
+    color: var(--blue)
+}
+
+.custom-card-height{
+    max-height: 20rem;
+}
+
+.card .text-muted {
+    color: #4e5760!important;
+}
+
+/* buttons */
+.btn-outline-secondary {
+    color: #9babb9;
+    border-color: #9babb9;
+}
+
