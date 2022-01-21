@@ -1,0 +1,17 @@
+:root {
+  --bg-color: #151828;
+  --offwhite: #fffff5;
+  --blue: #366681;
+  --gold: #f3b153;
+  --red: #aa222d;
+}
+
+p a {
+    color: #5bbbee;
+    text-decoration: underline;
+}
+
+p a:hover {
+    color: var(--gold);
+    text-decoration: underline;
+}
