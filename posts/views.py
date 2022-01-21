@@ -2,9 +2,9 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.utils.text import slugify
-from .models import Post, Comment, Category
 from django.db.models import Count, Q
-from allauth.account.forms import LoginForm, SignupForm
+from allauth.account.forms import SignupForm
+from .models import Post, Comment, Category
 from .forms import CommentForm, PostForm
 
 
@@ -31,14 +31,13 @@ class AllPosts(generic.ListView):
 
 
 class PostDetail(View):
-
+    """Passes details of requested post"""
     def get(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         comments = post.comments.order_by('date')
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
-        
         return render(
             request,
             "pages/post-management/post-page.html",
@@ -51,6 +50,9 @@ class PostDetail(View):
         )
 
     def post(self, request, slug, *args, **kwargs):
+        """Checks liked to see if user has liked post,
+        Takes comment form, adds details to comments model and
+        redirects to post page."""
         post = get_object_or_404(Post, slug=slug)
         comments = post.comments.order_by('date')
         liked = False
@@ -81,7 +83,8 @@ class PostDetail(View):
 
 
 class AddLike(View):
-
+    """Sets liked to true on post for current user and
+    reloads page."""
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug)
 
@@ -94,6 +97,8 @@ class AddLike(View):
 
 
 class CreatePost(generic.CreateView):
+    """Form view for user to create posts. Form takes
+    title, hero image, category. Automatically sets slug and author"""
     model = Post
     template_name = 'pages/post-management/create-post.html'
     form_class = PostForm
@@ -114,6 +119,7 @@ class CreatePost(generic.CreateView):
 
 
 class EditPost(generic.UpdateView):
+    """Form view to edit an existing post and load post."""
     model = Post
     template_name = 'pages/post-management/edit-post.html'
     form_class = PostForm
@@ -123,6 +129,8 @@ class EditPost(generic.UpdateView):
 
 
 class DeletePost(generic.DeleteView):
+    """Basic view to confirm delete post. Deletes post and
+    redirects home."""
     model = Post
     template_name = 'pages/post-management/delete-post.html'
 
@@ -131,6 +139,7 @@ class DeletePost(generic.DeleteView):
 
 
 def category(request, name):
+    """Function view to render category based on name."""
     category = Category.objects.get(name=name)
     posts = Post.objects.filter(category=category)
     return render(
@@ -138,11 +147,12 @@ def category(request, name):
 
 
 def search_results(request):
+    """Takes request from search bar and queries posts
+    by title and content to return matches"""
     if request.method == "POST":
         search = request.POST['search']
         results = Post.objects.filter(
             Q(title__icontains=search) | Q(content__icontains=search))
-        category = Category.objects.all()
         return render(
             request, 'pages/search.html', {
                 'search': search,

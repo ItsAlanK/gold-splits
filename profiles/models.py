@@ -5,10 +5,13 @@ from django.dispatch import receiver
 
 
 class Profile(models.Model):
+    """Profile extends from allauth User model
+    to store bio and profile image."""
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(max_length=500, blank=True)
     profile_img = models.FileField(
-        upload_to="media/", blank=True, default='../media/placeholder-avatar.png')
+        upload_to="media/", blank=True,
+        default='../media/placeholder-avatar.png')
 
 
 @receiver(post_save, sender=User)
