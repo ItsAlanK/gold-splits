@@ -283,25 +283,26 @@ To deploy this project to Heroku to be used remotely:
 
 ### Languages ###
 
-- HTML
-- CSS
-- Python
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [Python](https://www.python.org/)
 
 ### Libraries and Frameworks ###
 
-- Bootstrap
-- Font Awesome
-- CKEditor
+- [Bootstrap](https://getbootstrap.com/)
+- [Font Awesome](https://fontawesome.com/)
+- [CKEditor](https://pypi.org/project/django-ckeditor/)
 
 ### Other ###
 
-- Django
-- AWS S3
-- Heroku
-- Postgres
-- Git
-- DrawSQL
-- Balsamiq
+- [Django](https://www.djangoproject.com/)
+- [AWS S3](https://aws.amazon.com/))
+- [Heroku](https://www.heroku.com/)
+- [Heroku Postgres](https://www.heroku.com/postgres)
+- [Git](https://git-scm.com/)
+- [GitHub](https://github.com/)
+- [DrawSQL](https://drawsql.app/)
+- [Balsamiq](https://balsamiq.com/wireframes/)
 
 <a name="credits"></a>
 
