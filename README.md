@@ -192,6 +192,54 @@ Blue was chosen as the primary base tone to separate design from that of other p
 
 ## Testing ##
 
+### PEP8 ###
+All Python files follow all PEP8 standards and requirements with no errors ocurring.
+
+### HTML & CSS Validators ###
+When passing through [W3 Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fgold-splits.herokuapp.com%2F) some errors arise which are related to html input by users through ckeditor which cannot be controlled. All written html passes validation.
+
+When passing through [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator?uri=gold-splits.herokuapp.com&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en) some errors arise which are related to bootstrap libraries custom classes and properties. All written css passes validation.
+
+### User Stories ###
+
+#### Epic One ####
+- As a user I can view a list of posts on the site so that I can browse for posts I may be interested in.
+    - From the homepage users immediately have a list of posts sorted by most liked which they can browse with a navbar and page links to view all posts. These pages a paginated for ease of use to prevent excessive scrolling. **Test Passed**
+- As a user I can refine the list of posts by search or category so that I can better browse for a particular game or topic.
+    - The navbar along with each individual post comes with a link to each category's own page which lists all posts within this category. The user can also search for posts using keywords in post titles and bodys. **This test passes though search bar has room for expansion and refinement.**
+- As a user I can click a specific post so that so that I can read its content.
+    - Each post title and body appearing on a card anywhere on the site functions as a link to open a detail view where users can view the entire post. **Test Passed**
+- As a user I can see the date a post was created on so that I know which posts are most recent/relevant.
+    - All posts are stamped with the date and time of their creation. This information is displayed on their preview cards as well as on the posts detail view. **Test Passed**
+
+#### Epic Two ####
+-   As a user I can register an account so that I can create posts and like and comment on others' posts.
+    - Users must sign in to an account in order to like comment and create posts. This can be done from any page through the navbar when a user is not logged in. Buttons dynamically change to logout and profile buttons when the user is logged in. **Test Passed**
+-   As a user I can create a post so that I can share my ideas/accomplishments on the platform.
+    - Logged in users can create posts using a rich text editor where they can include links and images to their content. They also have the option of uploading a hero image to the post. Slugs, date fields and author fields are automatically populated when the post is created. **Test Passed**
+-   As a user I can upload images and videos to my post so that readers can watch my runs/clips and gain more context.
+    - Rich text editor in post creation allows images to be embedded directly into posts, links to videos can also be added. There are video embed plugins for ckeditor which were proving to be unintuitive to use so they were removed. Image upload system within ckeditor is cumbersome but functional, could use some customization to streamline the upload process. **Partial Pass**
+-   As a user I can edit and delete my posts so that I can maintain my content as I wish.
+    - If a user is the author of a post they will have options on post details pages to edit and delete posts. The edit post page provides the same rich text editor to make changes to post content and also hero image and title. The delete option provides a confimation screen before deletion. **Test Passed**
+
+#### Epic Three ####
+
+- As a user I can view comments left on a post so that follow the discussion.
+    - Post detail pages display a chronological list of all comments left on post with timestamps and username of commentors. **Test Passed**
+- As a user I can leave a like on posts so that I can give quick positive feedback on a post.
+    - Posts have a like counter and a like button for logged in users which can be toggled so users can unlike posts liked by accident **Test Passed**
+- As a user I can write, edit and delete comments on a post so that I can be involved in the discussions
+    - Users at present have the option of writting comments however ability to edit and remove them are only currently available through the admin panel. **Test Failed**
+
+#### Epic Four ####
+
+-   As an admin I can delete posts and users so that I can moderate the content on the platform.
+    - Through the admin panel an admin has the ability to delete user's which will delete content associated with them or just delete individual posts as needed.
+-   As an admin I can create categories so that users can add categories to their posts to organise content catalog. **Test Passed**
+    - Categories list can be expanded by admins as they see fit and new categories will be available to new posts or updating posts. The new categories will be updated in navigation also. **Test Passed**
+-   As an admin I can delete comments so that the comments sections of posts can be moderated.
+    - Admins can delete and edit comments to moderate the site as they see fit. **Test Passed**
+
 <a name="deployment"></a>
 
 ## Deployment ##
@@ -296,7 +344,7 @@ To deploy this project to Heroku to be used remotely:
 ### Other ###
 
 - [Django](https://www.djangoproject.com/)
-- [AWS S3](https://aws.amazon.com/))
+- [AWS S3](https://aws.amazon.com/)
 - [Heroku](https://www.heroku.com/)
 - [Heroku Postgres](https://www.heroku.com/postgres)
 - [Git](https://git-scm.com/)
