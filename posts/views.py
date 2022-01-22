@@ -59,7 +59,7 @@ class PostDetail(View):
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
 
-        comment_form = CommentForm(data=request.POST)
+        comment_form = CommentForm(request.POST)
 
         if comment_form.is_valid():
             comment_form.instance.user = request.user
@@ -69,6 +69,16 @@ class PostDetail(View):
             return HttpResponseRedirect(reverse('post_page', args=[slug]))
         else:
             comment_form = CommentForm()
+            return render(
+                request,
+                "pages/post-management/post-page.html",
+                {
+                    "post": post,
+                    "comments": comments,
+                    "comment_form": CommentForm(),
+                    "liked": liked,
+                }
+            )
 
         return render(
             request,
