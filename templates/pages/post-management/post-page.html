@@ -16,7 +16,7 @@
         <a href="{% url 'delete_post' post.slug %}">Delete post</a>
         {% endif %}
     </div>
-    <div class="hero-image mt-1">
+    <div class="col d-flex justify-content-center hero-image mt-1 ">
         <img src="{{ post.image_url | default_if_none:'' }}" class="img-fluid">
     </div>
     <p>
