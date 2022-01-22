@@ -12,6 +12,8 @@ The platform will also allow admins of the site to moderate and remove any inapp
 
 This project will use the Django framework for a MVC based application using Postgres databases to manage information.
 
+[**Link to Live Site**](https://gold-splits.herokuapp.com/)
+
 ## Table of contents 
 
 - [UX](#ux)
@@ -194,19 +196,56 @@ Blue was chosen as the primary base tone to separate design from that of other p
 
 ## Deployment ##
 
+This project is deployed to [Heroku](https://www.heroku.com/) which is where it is available to view publicly in a [Live Environment](https://gold-splits.herokuapp.com/). The project was developed using [Gitpod](https://gitpod.io/) with Github serving as host for my respository. This project can be deployed locally using and IDE such as gitpod or remote to a hosting platform such as Heroku.
+
+For this project to work you will need an account on [Amazon AWS](https://aws.amazon.com/) with an [S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingBucket.html) set up in order to store static files and uploaded media files.
+
 <a name="local-deployment"></a>
 
 ### Local Deployment ###
 
-Django, psycopg2, gunicorn, dj-database
+These are the steps needed in order to deploy this project locally through an IDE such as gitpod:
 
-Create S3 account, make bucket
+1. Clone the project. Navigate to the repository, above the window housing all of the application's files there is a code button which drops down into a clone window providing a link to clone the project. In your IDE terminal type the following using the link provided.
+    ```
+    git clone https://github.com/ItsAlanK/portfolio-tracker.git
+    ```
+2. Install the modules required for the application to run using the ```requirements.txt``` file. You can do this with the following command in your terminal.
+    ```
+    pip3 install -r requirements.txt
+    ```
+3. Create a file in your project root directory called ```env.py``` to store environment variables. These variables are referenced in ```settings.py``` and are used to set security keys and other sensitive information that should not be hardcoded into the project.
+    ```
+    import os
 
-S3, boto install
 
-Settings
+    os.environ["DATABASE_URL"] = 'YOUR DATABASE URL'
+    os.environ["DJANGO_SECRET_KEY"] = 'YOUR_SECRET_KEY'
+    os.environ["AWS_ACCESS_KEY_ID"] = 'YOUR_AWS_ACCESS_KEY_ID'
+    os.environ["AWS_SECRET_ACCESS_KEY"] = 'YOUR_AWS_SECRET_ACCESS_KEY'
+    os.environ["AWS_BUCKET_NAME"] = 'name of bucket created in aws'
+    os.environ["DEVELOP"] = "1"
+    ```
+    Ensure you add this env.py file to your .gitignore file if you are pushing the project to a live repository to prevent leaking information. If you fail to do this, deactivate and change any keys stored in the file immediately.
 
-Set up env.py
+    Your ```DATABASE_URL``` variable is not needed if you only intend to run on a local machine as the project uses a local database when debug is on however in a live environment this will be required. _(More on this in the live deployment)_
+4.  Migrate the database models with the following terminal command
+
+    ```
+    python3 manage.py migrate
+    ```
+5. Create a superuser in order to access admin for site with the following command
+    ```
+    python3 manage.py createsuperuser
+    ```
+    And set up a username and password
+6. Run the project with the following command:
+    ```
+    python manage.py runserver
+    ```
+    The terminal will provide you with the link to the server opened with this command.
+7. To access the admin dashboard, add ```/admin``` to the end of the URL and user your superuser login details.
+
 
 <a name="heroku"></a>
 
