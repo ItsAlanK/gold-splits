@@ -240,6 +240,21 @@ When passing through [W3C CSS Validator](https://jigsaw.w3.org/css-validator/val
 -   As an admin I can delete comments so that the comments sections of posts can be moderated.
     - Admins can delete and edit comments to moderate the site as they see fit. **Test Passed**
 
+### Manual Testing ###
+
+Testing carried out by friends and family as well as myself
+- Responsiveness
+    - Site has been tested on a variety of devices both desktop and mobile to ensure all pages are responsive. No elements spill out of their boundaries or off screen. CKEditor proved particularly stubborn in getting it to conform to its parent elements so it has been custom set to a % of the view width to ensure no overflow.
+- Navigation
+    - Navigation for the site is simple and straightforward. All buttons and links provide feedback to the user and link to the correct pages. All post titles and usernames link to their correspoonding pages as is expected by users.
+- Accessibility
+    - All colours for elements have been selected and tuned to ensure that sufficient contrast is seen throughout the site. Therefore all icons, text, elements on the site should be easily seen and read. Aria labels have been added to icons to ensure screenreaders correctly interpret them.
+- Security
+    - Options to edit and delete data is only displayed to the owner of that data, ie If a user does not own a post they do not see the edit/delete options. On top of that if a user finds their way to the edit page for a post they do not own and additional check is made to prevent them from being able to make edits. The same is true for profile information.
+
+### Automated Testing ###
+Some automated testing was started but due to time contraints had to be cut short
+
 <a name="deployment"></a>
 
 ## Deployment ##
