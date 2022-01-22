@@ -255,6 +255,19 @@ Testing carried out by friends and family as well as myself
 ### Automated Testing ###
 Some automated testing was started but due to time contraints had to be cut short
 
+### Bugs ###
+
+- Hero Images not saving on create post page but does save on edit page
+    - This occured as the create and edit post forms were handled differently. The create post function using ``post_form = PostForm(request.POST)`` but needed ``request.POST, request.FILES`` to access the uploaded file as well as data submitted. This fix caused another issue where because the hero_image could be blank the page templates were trying to reference and image that sometimes didn't exist and the previous check nolonger worked. Using the `|default_if_none:''` template filter solved this.
+- Comments resubmitted and duplicated if page is reloaded
+    - The view for creating comments was missing a `HttpResponseRedirect` which was needed to clear the data from the previous input. Adding this to the end of the if statement after the data was saved solved the issue.
+- Users can edit other users' posts with correct URL
+    - Originally the only check for user's being able to edit a post was whether or not the saw the button to edit. However a user could easily figure out the url to edit another user's post so another check was needed to prevent them going directly to the edit page. This was the same for delete post pages and edit profile pages. A simple `{% if user == post.author %}` _(replacing post.author with appropriate tag for each case)_ check in the template for each of these pages.
+- Footer overlapping content
+    - The footer menu was strangely overlapping with page content causing visibility issues. This was due to the footer being both transparent and sticking to the bottom of the window. making the footer static to the bottom of the page fixed this.
+- Content of post-cards overflowing beyond card boundaries
+    - Using the bootstrap `overflow-hidden` class along with a custom css class to set the height of the post-cards stopped this issue. Adding an inner border to the cards improved how this effect then looked.
+
 <a name="deployment"></a>
 
 ## Deployment ##
