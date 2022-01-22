@@ -11,18 +11,18 @@
             {{ post.number_of_likes }}
             {% else %}
             <button type="submit" name="blogpost_id" value="{{post.slug}}">
-                <i class="far fa-heart"></i>
+                <i class="far fa-heart" aria-label="like button heart icon"></i>
             </button>
             {{ post.number_of_likes }}
             {% endif %}
         </form>
         {% else %}
-        <i class="fas fa-heart"></i> {{ post.number_of_likes }}
+        <i class="fas fa-heart" aria-label="like button heart icon"></i> {{ post.number_of_likes }}
         {% endif %}
     </div>
     <div class="col-3">
         {% with comments.count as total_comments %}
-        <i class="fas fa-comments"></i> {{ total_comments }}
+        <i class="fas fa-comments" aria-label="comments counter speech bubble icon"></i> {{ total_comments }}
         {% endwith %}
     </div>
 </div>
