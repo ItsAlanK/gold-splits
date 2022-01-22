@@ -370,3 +370,5 @@ To deploy this project to Heroku to be used remotely:
 <a name="credits"></a>
 
 ## Credits ##
+
+A big thanks to my Code Institute mentors [Simen Daehlin](https://dehlin.dev/#home) and Daisy McGirr for their help preparing me for this project. And providing invaluable feedback and suggestions on how to improve it.
